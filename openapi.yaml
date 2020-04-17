@@ -287,6 +287,64 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/User"
+  /aziende:
+    post:
+      x-skaffolder-id: 5e9a14b182f82d390e776e1e
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 5e99ec2c82f82d390e776d8f
+      x-skaffolder-resource: aziende
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - aziende
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aziende"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                aziendaAttivita:
+                  type: string
+                nomeAzienda:
+                  type: string
+    get:
+      x-skaffolder-id: 5e99edf182f82d390e776da1
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 5e99ec2c82f82d390e776d8f
+      x-skaffolder-resource: aziende
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - aziende
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/aziende"
   "/aziende/{id}":
     delete:
       x-skaffolder-id: 5e99edf182f82d390e776da2
@@ -314,12 +372,117 @@ paths:
       responses:
         "200":
           description: OK
-  /aziende:
     get:
-      x-skaffolder-id: 5e99edf182f82d390e776da1
-      x-skaffolder-name: list
+      x-skaffolder-id: 5e9a14b182f82d390e776e1d
+      x-skaffolder-name: get
       x-skaffolder-id-resource: 5e99ec2c82f82d390e776d8f
       x-skaffolder-resource: aziende
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - aziende
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aziende"
+    post:
+      x-skaffolder-id: 5e9a14b182f82d390e776e1b
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 5e99ec2c82f82d390e776d8f
+      x-skaffolder-resource: aziende
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - aziende
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aziende"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/aziende"
+  /contatti:
+    post:
+      x-skaffolder-id: 5e9a14bd82f82d390e776e27
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - contatti
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/contatti"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                citta:
+                  type: string
+                cognome:
+                  type: string
+                dataNascita:
+                  type: integer
+                nome:
+                  type: string
+                sesso:
+                  type: object
+    get:
+      x-skaffolder-id: 5e9a14bd82f82d390e776e2c
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
       x-skaffolder-crudAction: list
       x-skaffolder-crudType: 
       x-skaffolder-description: CRUD ACTION list
@@ -329,7 +492,7 @@ paths:
       x-skaffolder-roles: []
       summary: CRUD ACTION list
       tags:
-        - aziende
+        - contatti
       responses:
         "200":
           description: OK
@@ -338,7 +501,133 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/aziende"
+                  $ref: "#/components/schemas/contatti"
+  "/contatti/{id}":
+    delete:
+      x-skaffolder-id: 5e9a14bd82f82d390e776e2b
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - contatti
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 5e9a14bd82f82d390e776e28
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - contatti
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/contatti"
+    post:
+      x-skaffolder-id: 5e9a14bd82f82d390e776e25
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - contatti
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/contatti"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/contatti"
+  "/contatti/findBycognome/{key}":
+    get:
+      x-skaffolder-id: 5e9a14b182f82d390e776e20
+      x-skaffolder-name: findBycognome
+      x-skaffolder-id-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-resource: contatti
+      x-skaffolder-crudAction: findBycognome
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBycognome
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBycognome/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBycognome
+      tags:
+        - contatti
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/contatti"
 security:
   - bearerAuth: []
 components:
@@ -456,6 +745,67 @@ components:
     - x-skaffolder-id: 5e99eb7682f82d390e776d4d
       x-skaffolder-name: contattiapp_db
   x-skaffolder-page:
+    - x-skaffolder-id: 5e9a14b182f82d390e776e23
+      x-skaffolder-name: Home
+      x-skaffolder-url: /home
+      x-skaffolder-template: 
+      x-skaffolder-resource: 
+      x-skaffolder-services: 
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 5e9a14b182f82d390e776e22
+        - 5e9a14bd82f82d390e776e2a
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5e9a14b182f82d390e776e1a
+      x-skaffolder-name: aziendeEdit
+      x-skaffolder-url: /aziendes/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5e99ec2c82f82d390e776d8f
+      x-skaffolder-services:
+        - 5e9a14b182f82d390e776e1e
+        - 5e9a14b182f82d390e776e1b
+        - 5e9a14b182f82d390e776e1d
+        - 5e9a14b182f82d390e776e20
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5e9a14b182f82d390e776e22
+      x-skaffolder-name: aziendeList
+      x-skaffolder-url: /aziendes
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5e99ec2c82f82d390e776d8f
+      x-skaffolder-services:
+        - 5e99edf182f82d390e776da2
+        - 5e99edf182f82d390e776da1
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 5e9a14b182f82d390e776e1a
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5e9a14bd82f82d390e776e24
+      x-skaffolder-name: contattiEdit
+      x-skaffolder-url: /contattis/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-services:
+        - 5e9a14bd82f82d390e776e27
+        - 5e9a14bd82f82d390e776e25
+        - 5e9a14bd82f82d390e776e28
+        - 5e99edf182f82d390e776da1
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5e9a14bd82f82d390e776e2a
+      x-skaffolder-name: contattiList
+      x-skaffolder-url: /contattis
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5e99ec1a82f82d390e776d88
+      x-skaffolder-services:
+        - 5e9a14bd82f82d390e776e2b
+        - 5e9a14bd82f82d390e776e2c
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 5e9a14bd82f82d390e776e24
+      x-skaffolder-roles: []
   x-skaffolder-roles: 
     - x-skaffolder-id: 5e99eb7682f82d390e776d58
       x-skaffolder-name: ADMIN

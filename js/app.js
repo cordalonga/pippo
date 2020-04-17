@@ -41,6 +41,36 @@ var app = angular.module('contattiapp_App', [
 //DO NOT EDIT THIS ROUTES, USE NEXT COMMENT SECTION
 
 // START - ROUTE
+	.when('/home', {
+	  templateUrl: 'html/Home.html',
+	  resolve: {
+		  user: ["AuthenticationService", function(AuthenticationService) { return AuthenticationService.isAuthenticated(); }]
+	  },
+	})
+	.when('/aziendes/:id', {
+	  templateUrl: 'html/aziendeEdit.html',
+	  resolve: {
+		  user: ["AuthenticationService", function(AuthenticationService) { return AuthenticationService.isAuthenticated(); }]
+	  },
+	})
+	.when('/aziendes', {
+	  templateUrl: 'html/aziendeList.html',
+	  resolve: {
+		  user: ["AuthenticationService", function(AuthenticationService) { return AuthenticationService.isAuthenticated(); }]
+	  },
+	})
+	.when('/contattis/:id', {
+	  templateUrl: 'html/contattiEdit.html',
+	  resolve: {
+		  user: ["AuthenticationService", function(AuthenticationService) { return AuthenticationService.isAuthenticated(); }]
+	  },
+	})
+	.when('/contattis', {
+	  templateUrl: 'html/contattiList.html',
+	  resolve: {
+		  user: ["AuthenticationService", function(AuthenticationService) { return AuthenticationService.isAuthenticated(); }]
+	  },
+	})
 
 // END - ROUTE
 

@@ -51,5 +51,14 @@
 app.factory('contattiService', ['$resource', '$rootScope', 'contattiServiceCustom',
   function($resource, $rootScope, contattiServiceCustom){
     return $resource( $rootScope.baseUrl + "/contatti/:_id", {_id:'@_id'}, $.extend({
+        'findBycognome': { 
+        	url: $rootScope.baseUrl + '/contatti/findBycognome/:key',
+        	method: 'GET',
+        	isArray: true,
+        	params: {
+        		key: '@key',
+        		 
+        	}
+        },
     }, contattiServiceCustom));
 }]);
